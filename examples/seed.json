@@ -1,0 +1,17 @@
+{
+  "id": "seed-1",
+  "generation": 0,
+  "source_topic": "demo-registry-item",
+  "target_topics": ["demo-policy"],
+  "relation": "amend",
+  "structure": "single_note",
+  "schedule": ["submit"],
+  "content_genes": {
+    "subject": "Demo Registry",
+    "claim": "the current test value is TARGET 1234",
+    "provenance": "authorized-local-fixture"
+  },
+  "modality": "text",
+  "evidence_channel": "plain_text"
+}
+

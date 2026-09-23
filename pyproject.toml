@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "qoms-attack-generator"
+version = "0.1.0"
+description = "Query-only multimodal attack candidate generator for authorized agent-memory research"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "Proprietary - private research repository"}
+
+[project.scripts]
+qoms-generate = "qoms_attack.cli:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
