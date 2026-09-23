@@ -26,9 +26,9 @@ logs/
 *.mp3
 *.mp4
 *.png
+!docs/figures/*.png
 *.jpg
 *.jpeg
 *.pdf
 *.docx
 *.pptx
-
