@@ -39,6 +39,10 @@ Budgeted candidate set + best candidate
 
 生成器只接收 seed recipe 和调用方显式提供的分数。目标适配、请求发送和反馈提取由调用方在自己的授权环境中实现。
 
+![QOMS attack pathway](docs/figures/qoms-attack-pathway.png)
+
+*图 1：QOMS 攻击路径。配对媒体经过原生多模态前端后形成文本 handoff，记忆后端在多个生命周期节点返回可见答案。图片摘自本仓库对应论文中的 Fig. 1。*
+
 ## 核心组件
 
 ### 1. 类型化 recipe
@@ -79,6 +83,10 @@ Budgeted candidate set + best candidate
 `render_candidate()` 将 recipe 转换为字符串载荷。当前实现支持普通文本、Markdown 表格、时间线、OCR 转写、ASR 转写、权威记录、跨通道佐证和冲突记录。
 
 这里的 image/audio 表示候选的类型和转写通道；当前版本不负责生成位图、音频波形或调用多模态编码器。真实媒体渲染器可以在上层系统中根据 recipe 另行实现。
+
+![Private media-to-memory transformation](docs/figures/qoms-media-to-memory.png)
+
+*图 2：媒体到记忆的私有转换。原生前端先生成文本 handoff，记忆后端再生成 metadata、更新链接并执行检索。图片摘自本仓库对应论文中的 Fig. 2。*
 
 ### 4. 固定预算生成
 
@@ -215,6 +223,8 @@ qoms-attack-generator/
 │   └── cli.py          # JSON seed 命令行入口
 ├── examples/
 │   └── seed.json       # 无真实目标的合成示例
+├── docs/
+│   └── figures/        # 方法示意图（来源见图注）
 ├── tests/
 │   └── test_generator.py
 └── pyproject.toml
@@ -243,4 +253,3 @@ python -m unittest discover -s tests -v
 ## 引用
 
 QOMS 论文仍在整理中。正式引用信息确定后，可在此处补充 BibTeX。当前如需在内部研究中引用本仓库，请记录仓库 URL、版本号和具体 commit。
-
